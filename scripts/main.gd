@@ -62,16 +62,24 @@ func _check_wave():
 		$StateChart.send_event("to_complete")
 	
 func _complete_grid():
-	for x in range(PathGenInstance.path_config.map_length):
-		for y in range(PathGenInstance.path_config.map_height):
-			if not PathGenInstance.get_path_route().has(Vector2i(x,y)):
-				var tile:Node3D = tile_empty.pick_random().instantiate()
+	for x in range(PathGenInstance\
+	.path_config.map_length):
+		for y in range(PathGenInstance\
+		.path_config.map_height):
+			if not PathGenInstance\
+			.get_path_route().has(Vector2i(x,y)):
+				var tile:Node3D = \
+				tile_empty.pick_random().instantiate()
 				add_child(tile)
-				tile.global_position = Vector3(x, 0, y)
-				tile.global_rotation_degrees = Vector3(0, randi_range(0,3)*90, 0)
+				tile.global_position = \
+				Vector3(x, 0, y)
+				tile.global_rotation_degrees = \
+				Vector3(0, randi_range(0,3)*90, 0)
 	
-	for i in range(PathGenInstance.get_path_route().size()):
-		var tile_score:int = PathGenInstance.get_tile_score(i)
+	for i in range(PathGenInstance\
+	.get_path_route().size()):
+		var tile_score:int = \
+		PathGenInstance.get_tile_score(i)
 		
 		var tile:Node3D = tile_empty[0].instantiate()
 		var tile_rotation: Vector3 = Vector3.ZERO
@@ -105,7 +113,9 @@ func _complete_grid():
 			tile_rotation = Vector3(0,0,0)
 			
 		add_child(tile)
-		tile.global_position = Vector3(PathGenInstance.get_path_tile(i).x, 0, PathGenInstance.get_path_tile(i).y)
+		tile.global_position = Vector3(PathGenInstance\
+		.get_path_tile(i).x, 0, \
+		PathGenInstance.get_path_tile(i).y)
 		tile.global_rotation_degrees = tile_rotation
 
 
