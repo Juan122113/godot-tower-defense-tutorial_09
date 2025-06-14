@@ -85,10 +85,10 @@ func _complete_grid():
 		var tile_rotation: Vector3 = Vector3.ZERO
 		
 		if tile_score == 2:
-			tile = tile_end.instantiate()
+			tile = tile_start.instantiate()
 			tile_rotation = Vector3(0,-90,0)
 		elif tile_score == 8:
-			tile = tile_start.instantiate()
+			tile = tile_end.instantiate()
 			tile_rotation = Vector3(0,90,0)
 		elif tile_score == 10:
 			tile = tile_straight.instantiate()

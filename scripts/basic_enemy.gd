@@ -25,8 +25,8 @@ func _ready():
 func _on_spawning_state_entered():
 	#print("Spawning")
 	attackable = false
-	$AnimationPlayer.play("spawn")
-	await $AnimationPlayer.animation_finished
+	#$AnimationPlayer.play("spawn")
+	#await $AnimationPlayer.animation_finished
 	$EnemyStateChart.send_event("to_travelling_state")
 
 func _on_travelling_state_entered():
@@ -38,13 +38,14 @@ func _on_travelling_state_processing(delta):
 	var distance_travelled_on_screen:float = clamp(distance_travelled, 0, PathGenInstance.get_path_route().size()-1)
 	$Path3D/PathFollow3D.progress = distance_travelled_on_screen
 	
-	if distance_travelled > PathGenInstance.get_path_route().size()-1:
-		$EnemyStateChart.send_event("to_damaging_state")
+	if distance_travelled > PathGenInstance.get_path_route().size()-2:
+		#$EnemyStateChart.send_event("to_damaging_state")
+		$EnemyStateChart.send_event("to_dying_state")
 
 func _on_despawning_state_entered():
 	enemy_finished.emit()
-	$AnimationPlayer.play("despawn")
-	await $AnimationPlayer.animation_finished
+	#$AnimationPlayer.play("despawn")
+	#await $AnimationPlayer.animation_finished
 	$EnemyStateChart.send_event("to_remove_enemy_state")
 
 func _on_remove_enemy_state_entered():
@@ -54,6 +55,7 @@ func _on_damaging_state_entered():
 	attackable = false
 #	print("doing some damage!")
 	$EnemyStateChart.send_event("to_despawning_state")
+	#$EnemyStateChart.send_event("to_dying_state")
 
 func _on_dying_state_entered():
 	get_parent_node_3d().cash += \
