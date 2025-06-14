@@ -107,4 +107,3 @@ func _on_button_up():
 		get_viewport().add_child(new_object)
 		new_object.global_position = _last_valid_location
 #		set_child_mesh_alphas(action_object, 1)
-

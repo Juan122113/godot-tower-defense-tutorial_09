@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://72lu3y2bauhu"]
+[gd_scene load_steps=23 format=3 uid="uid://72lu3y2bauhu"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_v46vx"]
+[ext_resource type="Script" uid="uid://b5dcgvx3b26rd" path="res://scripts/main.gd" id="1_v46vx"]
 [ext_resource type="PackedScene" uid="uid://bmgx4usrgj1hn" path="res://scenes/tile_end.tscn" id="2_0mfwr"]
 [ext_resource type="PackedScene" uid="uid://xdkdb4hv442h" path="res://scenes/tile_straight.tscn" id="3_luvjy"]
 [ext_resource type="PackedScene" uid="uid://b0m7jbd1q4hru" path="res://scenes/tile_corner.tscn" id="4_l0s0x"]
@@ -13,13 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://bdh0cqv4kt8t8" path="res://scenes/enemy_01.tscn" id="11_qo57y"]
 [ext_resource type="PackedScene" uid="uid://1b40l6h76su0" path="res://scenes/activity_button.tscn" id="12_33i1u"]
 [ext_resource type="Resource" uid="uid://biexbbltw0jsk" path="res://resources/wave_01.tres" id="12_e5lqd"]
+[ext_resource type="Script" uid="uid://crtvilb2htmhn" path="res://scripts/wave.gd" id="12_yc10j"]
 [ext_resource type="Resource" uid="uid://te7kip4x00wy" path="res://resources/wave_02.tres" id="13_dtyuv"]
 [ext_resource type="Texture2D" uid="uid://dnwe442illoox" path="res://images/cannon01a.png" id="13_x1qgb"]
 [ext_resource type="PackedScene" uid="uid://bw7qjsw1xnlvj" path="res://scenes/turret_1.tscn" id="14_8uhva"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="17_c80i5"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="18_b2qam"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="19_nikto"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="20_7e6jx"]
+[ext_resource type="Script" uid="uid://c73goghutdelf" path="res://addons/godot_state_charts/state_chart.gd" id="17_c80i5"]
+[ext_resource type="Script" uid="uid://d50hwntue27o" path="res://addons/godot_state_charts/compound_state.gd" id="18_b2qam"]
+[ext_resource type="Script" uid="uid://b3fc08cl0cet3" path="res://addons/godot_state_charts/atomic_state.gd" id="19_nikto"]
+[ext_resource type="Script" uid="uid://bdabs83qicjjo" path="res://addons/godot_state_charts/transition.gd" id="20_7e6jx"]
 
 [sub_resource type="Environment" id="Environment_wmip2"]
 background_mode = 1
@@ -39,9 +40,9 @@ tile_straight = ExtResource("3_luvjy")
 tile_corner = ExtResource("4_l0s0x")
 tile_crossroads = ExtResource("5_cscfw")
 tile_enemy = ExtResource("6_5cncu")
-tile_empty = Array[PackedScene]([ExtResource("7_3srkm"), ExtResource("8_w37o2"), ExtResource("9_o0h1j"), ExtResource("10_isnq1"), ExtResource("10_isnq1"), ExtResource("10_isnq1"), ExtResource("10_isnq1")])
+tile_empty = Array[PackedScene]([ExtResource("7_3srkm"), ExtResource("8_w37o2"), ExtResource("9_o0h1j"), ExtResource("10_isnq1")])
 enemy = ExtResource("11_qo57y")
-enemy_waves = Array[Resource("res://scripts/wave.gd")]([ExtResource("12_e5lqd"), ExtResource("13_dtyuv")])
+enemy_waves = Array[ExtResource("12_yc10j")]([ExtResource("12_e5lqd"), ExtResource("13_dtyuv")])
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 7.5, 9, 9.5)
