@@ -46,7 +46,7 @@ enemy = ExtResource("11_qo57y")
 enemy_waves = Array[ExtResource("12_yc10j")]([ExtResource("12_e5lqd"), ExtResource("13_dtyuv"), ExtResource("15_jscy8")])
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 7.5, 9, 9.5)
+transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 15, 9, 15.5)
 fov = 60.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

@@ -24,10 +24,12 @@ func generate_path(add_loops:bool = false):
 	randomize()
 	_loop_count = 0
 	
-	var x = 0
+	#var x = 0
+	var x = 2
+	#var x = int(path_config.map_height+10.0)
 	var y = int(path_config.map_height/2.0)
 	
-	while x < path_config.map_length:
+	while x < path_config.map_length-9:
 		if not _path_route.has(Vector2i(x,y)):
 			_path_route.append(Vector2i(x,y))
 		
@@ -35,9 +37,9 @@ func generate_path(add_loops:bool = false):
 
 		if choice == 0 or x < 2 or x % 2 == 0 or x == path_config.map_length-1:
 			x += 1
-		elif choice == 1 and y < path_config.map_height-2 and not _path_route.has(Vector2i(x,y+1)):
+		elif choice == 1 and y < path_config.map_height-9 and not _path_route.has(Vector2i(x,y+1)):
 			y += 1
-		elif choice == 2 and y > 1 and not _path_route.has(Vector2i(x,y-1)):
+		elif choice == 2 and y > 1 and not _path_route.has(Vector2i(x,y-1)) and y < path_config.map_height-2:
 			y -= 1
 	
 	if add_loops:

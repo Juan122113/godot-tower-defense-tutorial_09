@@ -38,7 +38,8 @@ func _on_travelling_state_processing(delta):
 	var distance_travelled_on_screen:float = clamp(distance_travelled, 0, PathGenInstance.get_path_route().size()-1)
 	$Path3D/PathFollow3D.progress = distance_travelled_on_screen
 	
-	if distance_travelled > PathGenInstance.get_path_route().size()-2:
+	if distance_travelled > PathGenInstance.get_path_route()\
+	.size()-2:
 		#$EnemyStateChart.send_event("to_damaging_state")
 		$EnemyStateChart.send_event("to_dying_state")
 
