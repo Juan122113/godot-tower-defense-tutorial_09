@@ -2,6 +2,8 @@ extends Node3D
 class_name Enemy
 
 @export var enemy_settings:EnemySettings
+@onready var progress_bar: ProgressBar = \
+$SubViewport/ProgressBar
 
 var enemy_health:float
 
@@ -16,11 +18,17 @@ var path_follow_3d:PathFollow3D
 func _ready():
 #	print("Ready")
 	enemy_health = enemy_settings.health
+	progress_bar.max_value = enemy_health
+	progress_bar.value = enemy_health
 	var enemy_mesh = \
 	enemy_settings.enemy_scene.instantiate()
 	$Path3D/PathFollow3D/Enemy.add_child(enemy_mesh)
 	$Path3D.curve = path_route_to_curve_3d()
 	$Path3D/PathFollow3D.progress = 0
+	
+#func _process(delta: float) -> void:
+	#while progress_bar.value > 0:
+		#progress_bar.value -= 
 	
 func _on_spawning_state_entered():
 	#print("Spawning")
@@ -35,8 +43,11 @@ func _on_travelling_state_entered():
 
 func _on_travelling_state_processing(delta):
 	distance_travelled += (delta * enemy_settings.speed)
-	var distance_travelled_on_screen:float = clamp(distance_travelled, 0, PathGenInstance.get_path_route().size()-1)
-	$Path3D/PathFollow3D.progress = distance_travelled_on_screen
+	var distance_travelled_on_screen:float = \
+	clamp(distance_travelled, 0, \
+	PathGenInstance.get_path_route().size()-1)
+	$Path3D/PathFollow3D.progress = \
+	distance_travelled_on_screen
 	
 	if distance_travelled > PathGenInstance.get_path_route()\
 	.size()-2:
@@ -82,6 +93,7 @@ func path_route_to_curve_3d() -> Curve3D:
 func _on_area_3d_area_entered(area):
 	if area is Projectile:
 		enemy_health -= area.damage
+		progress_bar.value = enemy_health
 
 	if enemy_health <= 0:
 		$EnemyStateChart.send_event("to_dying_state")

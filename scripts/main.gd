@@ -20,6 +20,7 @@ var wave_spawned:bool = false
 var enemies_remaining = 0
 
 @export var cash = 100
+@export var base_health = 100
 
 @onready var cam = $Camera3D
 var RAYCAST_LENGTH:float = 100
@@ -33,6 +34,7 @@ func _ready():
 	
 func _process(delta):
 	$Control/CashLabel.text = "Cash $%d" % cash
+	$Control/BaseHealthLabel.text = "Base Health %d" % base_health
 	
 func _spawn_wave():	
 	var enemy_wave:Array[EnemySettings] \

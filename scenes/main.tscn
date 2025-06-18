@@ -41,7 +41,7 @@ tile_straight = ExtResource("3_luvjy")
 tile_corner = ExtResource("4_l0s0x")
 tile_crossroads = ExtResource("5_cscfw")
 tile_enemy = ExtResource("6_5cncu")
-tile_empty = Array[PackedScene]([ExtResource("7_3srkm"), ExtResource("8_w37o2"), ExtResource("9_o0h1j"), ExtResource("10_isnq1")])
+tile_empty = Array[PackedScene]([ExtResource("7_3srkm"), ExtResource("8_w37o2"), ExtResource("9_o0h1j"), ExtResource("10_isnq1"), ExtResource("8_w37o2"), ExtResource("8_w37o2")])
 enemy = ExtResource("11_qo57y")
 enemy_waves = Array[ExtResource("12_yc10j")]([ExtResource("12_e5lqd"), ExtResource("13_dtyuv"), ExtResource("15_jscy8")])
 
@@ -78,6 +78,7 @@ offset_right = 48.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/font_size = 1
 activity_button_icon = ExtResource("13_x1qgb")
 activity_draggable = ExtResource("14_8uhva")
 
@@ -90,6 +91,21 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Cash $0"
 horizontal_alignment = 1
+
+[node name="BaseHealthLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.992188
+anchor_top = -0.00555556
+anchor_right = 1.0
+anchor_bottom = -0.00555556
+offset_left = -1269.0
+offset_bottom = 46.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "Base Health 100"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("17_c80i5")
@@ -123,8 +139,9 @@ to = NodePath("../../Complete")
 event = &"to_complete"
 
 [node name="StartWaveButton" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 170.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 32
 text = "Start wave"
 
 [connection signal="state_entered" from="StateChart/CompoundState/Complete" to="." method="_on_complete_state_entered"]
