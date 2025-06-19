@@ -20,6 +20,8 @@ func _ready():
 	progress_bar.value = base_health
 
 
+func _process(delta: float) -> void:
+	_on_base_destruction()
 
 #func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
 	#if body is Enemy:
@@ -46,3 +48,8 @@ func _on_base_area_area_entered(area: Area3D) -> void:
 	print(area, "Colisionó")
 	base_health -= area.enemy_settings.damage
 	progress_bar.value = base_health
+	
+
+func _on_base_destruction():
+	if base_health <= 0:
+		$towerSquare_bottomA.visible = false
