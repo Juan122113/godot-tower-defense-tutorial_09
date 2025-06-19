@@ -58,7 +58,7 @@ func _spawn_wave():
 	#$StateChart.send_event("to_complete")
 	
 func _check_wave():
-	print("Acá tenés!")
+	#print("Acá tenés!")
 	enemies_remaining -= 1
 	if enemies_remaining <= 0 and wave_spawned:
 		$StateChart.send_event("to_complete")

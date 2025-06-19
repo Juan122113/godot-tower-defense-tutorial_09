@@ -39,8 +39,8 @@ func generate_path(add_loops:bool = false):
 			x += 1
 		elif choice == 1 and y < path_config.map_height-9 and not _path_route.has(Vector2i(x,y+1)):
 			y += 1
-		elif choice == 2 and y > 1 and not _path_route.\
-		has(Vector2i(x,y-1)) and y < path_config.map_height+13:
+		elif choice == 2 and y > 6 and not _path_route.\
+		has(Vector2i(x,y-1)):
 			y -= 1
 	
 	if add_loops:

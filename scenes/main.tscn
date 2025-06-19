@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5dcgvx3b26rd" path="res://scripts/main.gd" id="1_v46vx"]
 [ext_resource type="PackedScene" uid="uid://xdkdb4hv442h" path="res://scenes/tile_straight.tscn" id="3_luvjy"]
-[ext_resource type="PackedScene" uid="uid://co6vinotb7glu" path="res://scenes/base_tower.tscn" id="3_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://co6vinotb7glu" path="res://scenes/base.tscn" id="3_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://b0m7jbd1q4hru" path="res://scenes/tile_corner.tscn" id="4_l0s0x"]
 [ext_resource type="PackedScene" uid="uid://cmnge1crd337m" path="res://scenes/tile_crossroads.tscn" id="5_cscfw"]
 [ext_resource type="PackedScene" uid="uid://bcpa3ytho1jjr" path="res://assets/enemy_ufoPurple.glb" id="6_5cncu"]

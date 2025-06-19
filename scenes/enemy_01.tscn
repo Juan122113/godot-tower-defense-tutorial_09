@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bdh0cqv4kt8t8"]
+[gd_scene load_steps=49 format=3 uid="uid://bdh0cqv4kt8t8"]
 
 [ext_resource type="Script" uid="uid://cjv3ltsdirhbh" path="res://scripts/basic_enemy.gd" id="1_x18ab"]
 [ext_resource type="Script" uid="uid://c73goghutdelf" path="res://addons/godot_state_charts/state_chart.gd" id="2_5wlrk"]
@@ -8,8 +8,9 @@
 [ext_resource type="Script" uid="uid://bdabs83qicjjo" path="res://addons/godot_state_charts/transition.gd" id="5_2ibju"]
 [ext_resource type="AudioStream" uid="uid://d14ff21l0nl8" path="res://audio/explosion.mp3" id="7_fptwa"]
 [ext_resource type="PackedScene" uid="uid://bg1gqw2faq76p" path="res://scenes/explosion.tscn" id="7_gitsl"]
-[ext_resource type="Script" uid="uid://coikumjtkpxjc" path="res://scenes/progress_bar.gd" id="7_l530j"]
+[ext_resource type="Script" uid="uid://coikumjtkpxjc" path="res://scripts/progress_bar.gd" id="7_l530j"]
 [ext_resource type="PackedScene" uid="uid://ck3mpjdn2dk3d" path="res://scenes/smoke.tscn" id="7_veyri"]
+[ext_resource type="Script" uid="uid://c0fcedpwhhwko" path="res://scripts/area_3d.gd" id="8_il2p4"]
 [ext_resource type="Script" uid="uid://dbq4cnxhja788" path="res://scripts/robot_animation_.gd" id="10_x7q62"]
 
 [sub_resource type="Animation" id="Animation_qxxns"]
@@ -1832,6 +1833,8 @@ texture = SubResource("ViewportTexture_x7q62")
 [node name="Area3D" type="Area3D" parent="Path3D/PathFollow3D"]
 collision_layer = 2
 collision_mask = 4
+script = ExtResource("8_il2p4")
+enemy_settings = ExtResource("2_ariuf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

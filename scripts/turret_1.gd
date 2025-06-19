@@ -12,7 +12,7 @@ var last_fire_time:int
 @export var projectile_type:PackedScene
 
 func _on_patrol_zone_area_entered(area):
-	#print(area, " entered")
+	print(area, " entered")
 	if current_enemy == null:
 		current_enemy = area
 	enemies_in_range.append(area)

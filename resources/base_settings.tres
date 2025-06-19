@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BaseSettings" load_steps=3 format=3 uid="uid://dkcpbgrdu5p7l"]
+
+[ext_resource type="PackedScene" uid="uid://brcsvdoli24lp" path="res://assets/towerSquare_bottomA.glb" id="1_650h4"]
+[ext_resource type="Script" uid="uid://fnettpgy6moa" path="res://scripts/base_settings.gd" id="1_fknxu"]
+
+[resource]
+script = ExtResource("1_fknxu")
+health = 100.0
+base_scene = ExtResource("1_650h4")
+metadata/_custom_type_script = "uid://fnettpgy6moa"
