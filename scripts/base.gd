@@ -52,4 +52,7 @@ func _on_base_area_area_entered(area: Area3D) -> void:
 
 func _on_base_destruction():
 	if base_health <= 0:
-		$towerSquare_bottomA.visible = false
+		#$towerSquare_bottomA.visible = false
+		$Explosion.emitting = true
+		$Smoke.emitting = true
+		$ExplosionAudio.play()

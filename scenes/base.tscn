@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://co6vinotb7glu"]
+[gd_scene load_steps=13 format=3 uid="uid://co6vinotb7glu"]
 
 [ext_resource type="Script" uid="uid://chpaxuwo7aqal" path="res://scripts/base.gd" id="1_baglu"]
 [ext_resource type="PackedScene" uid="uid://brcsvdoli24lp" path="res://assets/towerSquare_bottomA.glb" id="1_yff4m"]
 [ext_resource type="Resource" uid="uid://dkcpbgrdu5p7l" path="res://resources/base_settings.tres" id="2_t45w4"]
 [ext_resource type="Script" uid="uid://coikumjtkpxjc" path="res://scripts/progress_bar.gd" id="4_h5ip5"]
 [ext_resource type="PackedScene" uid="uid://cfmwnsfmblns3" path="res://assets/tile.glb" id="5_40w10"]
+[ext_resource type="PackedScene" uid="uid://bg1gqw2faq76p" path="res://scenes/explosion.tscn" id="6_vqfsp"]
+[ext_resource type="PackedScene" uid="uid://ck3mpjdn2dk3d" path="res://scenes/smoke.tscn" id="7_i6jx3"]
+[ext_resource type="AudioStream" uid="uid://d14ff21l0nl8" path="res://audio/explosion.mp3" id="8_jn13j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwqyq"]
 bg_color = Color(0, 0, 0, 1)
@@ -61,6 +64,15 @@ shape = SubResource("BoxShape3D_t45w4")
 
 [node name="tile" parent="." instance=ExtResource("5_40w10")]
 visible = false
+
+[node name="Explosion" parent="." instance=ExtResource("6_vqfsp")]
+
+[node name="Smoke" parent="." instance=ExtResource("7_i6jx3")]
+
+[node name="ExplosionAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_jn13j")
+volume_db = -35.333
+bus = &"FX"
 
 [connection signal="value_changed" from="towerSquare_bottomA/SubViewport/ProgressBar" to="towerSquare_bottomA/SubViewport/ProgressBar" method="_on_value_changed"]
 [connection signal="area_entered" from="BaseArea" to="." method="_on_base_area_area_entered"]
